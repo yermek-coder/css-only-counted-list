@@ -1,0 +1,40 @@
+.resizable {
+    resize: horizontal;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 200px;
+    max-height: 1rem;
+}
+
+.container {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+
+    padding-right: 1.8rem;
+    counter-reset: counter 30;
+}
+
+.item {
+    position: relative;
+    background-color: white;
+}
+
+.item::before {
+    content: counter(counter);
+    counter-increment: counter -1;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(calc(100% + 0.25rem + 2px), -50%);
+    font-size: 0.55em;
+    padding: 0.25em 0.35em;
+    line-height: 1;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+}
+
+.item:last-of-type::before {
+    display: none;
+}
